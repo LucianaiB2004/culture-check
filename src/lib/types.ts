@@ -30,4 +30,10 @@ export interface Report {
   jobId: string; elements: Element[]; results: MarketResult[]; events: AgentEvent[]; elapsedMs: number;
   fixedImage?: string; fixedScores?: Partial<Record<Market, number>>; fixedResults?: MarketResult[];
   models: Record<string, string>; warnings?: string[]; fixSkipped?: string[];
+  i18n?: Partial<Record<'en' | 'ja', Translation>>;
+}
+export interface Translation {
+  product: string; elements: Record<string, string>;
+  findings: Record<string, { title: string; where: string; reason: string; suggestion: string }>;
+  passes: Record<string, string[]>;
 }

@@ -22,7 +22,7 @@ export function loadSettings(): Settings {
 export function saveSettings(s: Settings) { localStorage.setItem(KEY, JSON.stringify(s)); }
 export function clearSettings() { localStorage.removeItem(KEY); }
 export function hasLive(s = loadSettings()) {
-  return s.provider === 'qianfan' ? !!(s.qianfanKey && s.bailianKey) || !!s.qianfanKey : !!s.bailianKey;
+  return !!s.bailianKey || (s.provider === 'qianfan' && !!s.qianfanKey);
 }
 export function bailianBase(s: Settings) {
   return s.region === 'ap-southeast-1' ? 'https://dashscope-intl.aliyuncs.com' : 'https://dashscope.aliyuncs.com';

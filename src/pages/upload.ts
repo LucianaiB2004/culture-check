@@ -30,7 +30,7 @@ function renderRules() {
   const rs = [...S.markets].flatMap(m => rulesFor(m)).filter(r => cats.includes(r.category) || (cats.includes('compliance') && r.kind === 'compliance'));
   const lvO = { high: 0, mid: 1, low: 2 } as const;
   const top = rs.sort((a, b) => lvO[a.level] - lvO[b.level]).slice(0, 4);
-  $('#rules').innerHTML = `<div class="rh"><img src="assets/agent-culture.webp" alt="">文化顾问预告：本次将重点比对<span class="sp"></span><span class="tag ai">规则库 v1 · 命中范围 ${rs.length} 条</span></div>` +
+  $('#rules').innerHTML = `<div class="rh"><img src="assets/agent-culture.webp" alt="">文化顾问预告：本次将重点比对<span class="sp"></span><a class="tag ai" href="rules.html" title="查看完整规则库">规则库 v1 · 命中范围 ${rs.length} 条 →</a></div>` +
     (top.length ? top.map(r => `<div class="rule"><img src="${mkImg(r.market)}" alt=""><div><b>${MK_SHORT[r.market]} · ${esc(r.title)}</b><small>来源：${esc(r.sources[0]?.title || '')}</small></div><span class="tag ${r.level}">${{ high: '高', mid: '中', low: '低' }[r.level]}</span></div>`).join('')
       : `<div class="rule empty"><div><b>请至少选择 1 个市场和 1 类检查</b></div></div>`);
   const sec = Math.round(20 + S.markets.size * 6);

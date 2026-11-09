@@ -116,3 +116,58 @@ textarea.input{width:100%;resize:vertical;font:inherit;color:inherit;outline:non
 }
 .mtabs.seg button,.mseg.seg button{flex:1 1 0;justify-content:center}.mseg.seg{display:flex}
 .img-tools{flex-wrap:wrap;row-gap:8px}.img-tools #mkSeg{max-width:100%;overflow-x:auto;scrollbar-width:none}.img-tools #mkSeg::-webkit-scrollbar{display:none}
+/* 追问体检团 */
+.ask-btn{display:flex;align-items:center;gap:10px;width:100%;margin-top:12px;padding:10px 12px;border-radius:16px;border:1.5px dashed var(--line-2);background:var(--bg);text-align:left;cursor:pointer;transition:.15s}
+.ask-btn:hover{border-color:var(--lav);background:var(--lav-50)}
+.ask-btn img{width:38px;height:38px;object-fit:contain;flex:none}
+.ask-btn span{display:flex;flex-direction:column;min-width:0}.ask-btn b{font-size:14px}.ask-btn small{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ask-btn i{margin-left:auto;font-style:normal;font-weight:800;color:var(--lav)}
+.chat-mask{position:fixed;inset:0;background:rgba(27,33,64,.28);z-index:60;display:flex;justify-content:flex-end;opacity:0;pointer-events:none;transition:opacity .18s}
+.chat-mask.show{opacity:1;pointer-events:auto}
+.chat{width:min(440px,100%);height:100%;border-radius:24px 0 0 24px;display:flex;flex-direction:column;transform:translateX(30px);transition:transform .2s;padding:0}
+.chat-mask.show .chat{transform:none}
+.chat header{display:flex;align-items:center;gap:10px;padding:16px 16px 12px;border-bottom:1.5px solid var(--line)}
+.chat header img{width:44px;height:44px;object-fit:contain}.chat header b{font-size:16px}.chat header small{display:block;font-size:12px;color:var(--muted)}
+.chat header .mx-close{margin-left:auto}
+.chat-log{flex:1;overflow:auto;padding:14px 16px;display:flex;flex-direction:column;gap:12px}
+.msg{display:flex;gap:8px;align-items:flex-start}.msg img{width:30px;height:30px;object-fit:contain;flex:none}
+.msg .bubble{padding:10px 12px;border-radius:16px;font-size:13.5px;line-height:1.65;max-width:86%}
+.msg.a .bubble{background:var(--bg);border:1.5px solid var(--line);border-top-left-radius:6px}
+.msg.u{justify-content:flex-end}.msg.u .bubble{background:var(--ink);color:#fff;border-top-right-radius:6px}
+.msg .bubble p+p,.msg .bubble ul+p,.msg .bubble p+ul{margin-top:6px}.msg .bubble ul{padding-left:18px}.msg .bubble li{margin:2px 0}
+.typing{display:flex;gap:4px;padding:14px 14px!important}.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:tp 1s infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes tp{0%,60%,100%{opacity:.3;transform:none}30%{opacity:1;transform:translateY(-3px)}}
+.chat-q{padding:8px 16px 4px;display:flex;flex-wrap:wrap;gap:6px;border-top:1.5px solid var(--line)}
+.chat-q small{width:100%;font-size:11.5px;color:var(--muted);font-weight:700}
+.chat-q button{font-size:12.5px;padding:6px 10px;border-radius:12px;background:var(--lav-50);color:#4B3DC4;border:0;cursor:pointer;text-align:left}
+.chat-q button:hover{background:var(--lav-100)}
+.chat-in{display:flex;gap:8px;padding:10px 16px 16px}.chat-in input{flex:1;height:40px;border-radius:12px;border:1.5px solid var(--line-2);padding:0 12px;font:inherit;font-size:13.5px;background:#fff}
+.chat-in input:focus{outline:none;border-color:var(--lav)}
+@media (max-width:760px){.chat{width:100%;height:88%;margin-top:auto;border-radius:24px 24px 0 0;transform:translateY(30px)}.chat-mask{align-items:flex-end}}
+/* 顶栏导航（规则库等非流程页） */
+.top-nav{display:flex;gap:4px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px;box-shadow:var(--sh-1)}
+.top-nav a{padding:7px 14px;border-radius:999px;font-size:13px;font-weight:700;color:var(--ink-2)}
+.top-nav a.on{background:var(--ink);color:#fff}
+/* 规则库 */
+.app.app-scroll{height:auto;min-height:100vh;overflow:visible}
+.rules-main{display:block;max-width:1240px;margin:0 auto;width:100%}
+.rules-hero{display:flex;gap:22px;align-items:center;padding:22px 26px;margin-bottom:16px}
+.rules-hero>img{width:120px;height:120px;object-fit:contain;flex:none}
+.rules-hero h1{font-size:30px;margin:8px 0 6px;letter-spacing:-.02em}
+.rules-hero p{color:var(--ink-2);font-size:14px;line-height:1.7;max-width:760px}
+.rules-bar{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.rules-bar #rMk{flex-wrap:wrap}
+.rules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.rules-grid .rcard{padding:14px 16px}
+.rules-grid .rcard .rh{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center}
+.rules-grid .rcard .rh>img{width:44px;height:44px;object-fit:contain;background:var(--bg);border-radius:12px;padding:3px}
+.rules-grid .rcard .rh b{font-size:14.5px;display:block;line-height:1.35}
+.rules-grid .rcard .rh small{display:flex;align-items:center;gap:4px;font-size:11.5px;color:var(--muted);font-weight:600}
+.rules-grid .rcard .rh small img{width:16px;height:16px;object-fit:contain}
+.rules-grid .rcard p{font-size:12.5px;color:var(--ink-2);line-height:1.65;margin:10px 0 0}
+.rules-grid .rcard .fix{display:flex;gap:8px;margin-top:10px;padding:8px 10px;border-radius:12px;background:var(--mint-50);font-size:12.5px}
+.rules-grid .rcard .fix b{color:#178A60;white-space:nowrap}
+.rules-grid .rcard .src{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-top:10px;font-size:12px}
+.rules-grid .rcard .src code{font-size:11px;background:var(--bg-2);padding:2px 6px;border-radius:6px;color:var(--ink-2)}
+.rules-grid .rcard .src a{color:var(--lav);font-weight:600}
+@media (max-width:760px){.rules-hero{flex-direction:column;align-items:flex-start;padding:18px}.rules-hero>img{width:84px;height:84px}.rules-hero h1{font-size:24px}.rules-grid{grid-template-columns:1fr}.top-nav{display:none}}

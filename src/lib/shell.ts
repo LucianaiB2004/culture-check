@@ -8,13 +8,13 @@ export const esc = (s: unknown) => String(s ?? '').replace(/[&<>"']/g, c => ({ '
 const STEPS = ['上传图片', '选择市场', 'AI 会诊', '体检报告'];
 export function chipText(s = loadSettings()) {
   if (!hasLive(s)) return { live: false, t: '演示模式 · 百炼 Key 未填' };
-  return { live: true, t: `${s.provider === 'qianfan' && s.qianfanKey ? '千帆 + 百炼' : '百炼'}已配置 · 真实分析` };
+  return { live: true, t: `${s.provider === 'qianfan' && s.qianfanKey ? (s.bailianKey ? '千帆 + 百炼' : '千帆') : '百炼'}已配置 · 真实分析` };
 }
 export function mountTopbar(active: number) {
   const h = document.createElement('header'); h.className = 'topbar';
   const c = chipText();
   h.innerHTML = `<a class="brand" href="index.html"><img src="assets/logo.webp" alt=""><div><b>商品图文化体检</b><small>CultureCheck</small></div></a>
-  <div class="steps">${STEPS.map((n, i) => `<div class="step ${i < active ? 'done' : i === active ? 'on' : ''}"><i>${i < active ? '✓' : i + 1}</i>${n}</div>`).join('')}</div>
+  ${active < 0 ? `<nav class="top-nav"><a href="upload.html">开始体检</a><a href="compare.html?demo=tea">示例报告</a><a href="rules.html" class="on">规则库</a></nav>` : `<div class="steps">${STEPS.map((n, i) => `<div class="step ${i < active ? 'done' : i === active ? 'on' : ''}"><i>${i < active ? '✓' : i + 1}</i>${n}</div>`).join('')}</div>`}
   <div class="top-actions">
     <button class="chip-key" id="keyChip" title="API Key 设置"><img src="assets/icon-key.webp" alt=""><span class="dot ${c.live ? '' : 'off'}"></span><span class="t">${esc(c.t)}</span></button>
     <div class="avatar"><img src="assets/avatar-user.webp" alt=""></div>

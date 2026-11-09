@@ -1,0 +1,160 @@
+{
+ "en": {
+  "product": "Beef Jerky Party Pack",
+  "elements": {
+   "e1": "BEEF JERKY PARTY",
+   "e2": "SMOKY BEEF JERKY",
+   "e3": "Beef Jerky piece",
+   "e4": "Premium Lager Be",
+   "e5": "Premium Lager Be",
+   "e7": "MADE IN USA seal"
+  },
+  "findings": {
+   "IN-1-c": {
+    "title": "Packaging printed with SMOKY BEEF JERKY",
+    "where": "Front of product box on the left",
+    "reason": "The main visual on the packaging clearly labels it as “SMOKY BEEF JERKY,” showcasing beef jerky as the core product. This violates India's strict restrictions and sensitive regulations regarding beef products.",
+    "suggestion": "Change packaging text to “PREMIUM SOY JERKY”"
+   },
+   "IN-2-c": {
+    "title": "Actual beef jerky displayed in window",
+    "where": "Transparent window on packaging",
+    "reason": "Dark brown meat jerky is visible through the packaging window, confirmed as beef jerky combined with the copy. Displaying such images of beef in the Indian market easily triggers religious controversies and compliance delisting risks.",
+    "suggestion": "Remove meat display from the window; replace with solid color background or vegetarian imagery"
+   },
+   "IN-3-c": {
+    "title": "Selling points emphasize beef and US origin",
+    "where": "Product detail page selling point description",
+    "reason": "The combination of “Premium Beef Jerky” and “Made in USA” in the copy violates both the beef ban and import restrictions on US beef, making the product unsellable. The copy needs complete restructuring.",
+    "suggestion": "Change to “High Protein Soy Snacks - Authentic Indian Taste”"
+   },
+   "IN-0-c": {
+    "title": "Packaging lacks Indian importer and MRP information",
+    "where": "Front of product packaging",
+    "reason": "The beef jerky packaging in the image only shows US origin and net weight, missing the importer's name and address, metric net content, and Maximum Retail Price (MRP) inclusive of taxes, which are mandatory under Indian law.",
+    "suggestion": "Add MRP label compliant with Legal Metrology standards"
+   },
+   "SA-0-c": {
+    "title": "Alcoholic beverages in image violate embargo regulations",
+    "where": "To the right of the beef jerky",
+    "reason": "Saudi Arabia strictly prohibits the import and sale of alcoholic beverages. The image clearly shows two beer bottles labeled 'PREMIUM LAGER BEER,' which are prohibited items that will lead to product delisting or account suspension.",
+    "suggestion": "Directly remove wine bottles from the background, keeping only the beef jerky product"
+   },
+   "SA-1-c": {
+    "title": "Alcoholic beverages in image violate embargo regulations",
+    "where": "Far right edge",
+    "reason": "As above, this element is also an alcoholic beverage labeled 'LAGER BEER.' It is prohibited content in the Saudi market and must be completely removed from advertising materials.",
+    "suggestion": "Replace beer with bottled water or sports drinks"
+   },
+   "SA-2-c": {
+    "title": "Meat product lacks Halal certification mark",
+    "where": "Front of product packaging",
+    "reason": "Saudi Arabia mandates that imported meat must have Halal certification. The beef jerky packaging in the image only labels 'Made in USA' and 'Hickory Smoked,' with no Halal certification marks, failing to meet local meat import compliance requirements.",
+    "suggestion": "Add a Saudi-recognized Halal certification logo in a prominent position on the packaging"
+   },
+   "US-0-c": {
+    "title": "“Made in USA” claim must comply with FTC standards",
+    "where": "Bottom right corner of packaging",
+    "reason": "The image uses an unqualified “MADE IN USA” seal. According to FTC standards, this requires the product to be “all or virtually all” made, processed, and sourced in the US. If full supply chain proof cannot be provided, this absolute claim poses a risk of false advertising.",
+    "suggestion": "If not fully compliant, change to a qualified description such as “Made in USA with global ingredients” or remove the seal"
+   }
+  },
+  "passes": {
+   "IN": [
+    "Beer and gesture elements did not trigger current rules",
+    "Weight and star rating markings have no cultural sensitivity issues",
+    "Verified consistency between product name and description",
+    "Verified compliance of non-vegetarian labeling"
+   ],
+   "SA": [
+    "Gesture is right-hand thumbs-up, not OK sign",
+    "No left-hand handing over or eating actions observed",
+    "Verified net content labeling standards",
+    "Verified non-pork meat claims"
+   ],
+   "US": [
+    "Verified net content labeling standards",
+    "Verified country of origin labeling"
+   ]
+  }
+ },
+ "ja": {
+  "product": "ビーフジャーキー パーティーパック",
+  "elements": {
+   "e1": "BEEF JERKY PARTY",
+   "e2": "SMOKY BEEF JERKY",
+   "e3": "Beef Jerky piece",
+   "e4": "Premium Lager Be",
+   "e5": "Premium Lager Be",
+   "e7": "MADE IN USA seal"
+  },
+  "findings": {
+   "IN-1-c": {
+    "title": "パッケージに「SMOKY BEEF JERKY」の表記あり",
+    "where": "左側製品パッケージ正面",
+    "reason": "製品パッケージのメインビジュアルで「SMOKY BEEF JERKY」と明記され、ビーフジャーキーが主要販売商品として提示されています。これはインド市場における牛肉製品の厳格な制限および機微な規則に抵触します。",
+    "suggestion": "パッケージの表記を「PREMIUM SOY JERKY」に変更してください"
+   },
+   "IN-2-c": {
+    "title": "ウィンドウ内にビーフジャーキーの実物が展示されている",
+    "where": "パッケージ透明ウィンドウ部分",
+    "reason": "パッケージのウィンドウを通じて濃褐色の肉乾の実物が見え、コピーと合わせてビーフジャーキーであることが確認されます。インド市場でこのような牛肉の実物画像を提示することは、宗教的な議論を巻き起こしやすく、コンプライアンス違反による削除リスクが高まります。",
+    "suggestion": "ウィンドウ内の肉類の展示を撤去し、単色背景またはベジタリアン向けの図案に変更してください"
+   },
+   "IN-3-c": {
+    "title": "セールスポイントの文案で牛肉と米国産を強調",
+    "where": "商品詳細ページのセールスポイント説明",
+    "reason": "文案中の「Premium Beef Jerky」および「Made in USA」の重複は、牛肉禁止令に触れるだけでなく、米国産牛肉の輸入制限により販売が完全に不可能となります。文案の抜本的な再構築が必要です。",
+    "suggestion": "「High Protein Soy Snacks - Authentic Indian Taste」に変更してください"
+   },
+   "IN-0-c": {
+    "title": "パッケージにインド輸入者およびMRP情報の記載缺失",
+    "where": "製品パッケージ正面",
+    "reason": "画像のビーフジャーキー包装には米国原産地と正味重量のみが表示されており、インド法で義務付けられている輸入業者の名称・住所、メートル法の正味含量、および税込み最大小売価格（MRP）が欠けています。",
+    "suggestion": "Legal Metrology基準に準拠したMRPラベルを追加してください"
+   },
+   "SA-0-c": {
+    "title": "画像にアルコール飲料が含まれており禁輸規定に違反",
+    "where": "ビーフジャーキーの右側",
+    "reason": "サウジアラビアではアルコール飲料の輸入および販売が厳しく禁止されています。画像には「PREMIUM LAGER BEER」と記されたビール瓶2本が明確に映っており、絶対に表示してはいけない禁止事項要素です。これにより商品の削除やアカウント停止の原因となります。",
+    "suggestion": "背景にある酒瓶を直接削除し、ビーフジャーキー製品のみを残してください"
+   },
+   "SA-1-c": {
+    "title": "画像にアルコール飲料が含まれており禁輸規定に違反",
+    "where": "最右端",
+    "reason": "前述と同様、この要素も「LAGER BEER」と記されたアルコール飲料であり、サウジ市場では禁止コンテンツとなります。広告素材から完全に除去する必要があります。",
+    "suggestion": "ビールをボトル入り水またはスポーツドリンクに置き換えてください"
+   },
+   "SA-2-c": {
+    "title": "肉製品にハラール認証マークの記載缺失",
+    "where": "製品パッケージ正面",
+    "reason": "サウジアラビアでは輸入肉製品にハラール（Halal）認証を取得することが義務付けられています。画像のビーフジャーキー包装には「Made in USA」および「Hickory Smoked」の表記のみがあり、ハラール認証マークが見当たらないため、現地の肉類輸入コンプライアンス要件を満たしていません。",
+    "suggestion": "パッケージの目立つ位置にサウジ当局が認めるHalal認証ロゴを追加してください"
+   },
+   "US-0-c": {
+    "title": "「Made in USA」の表示はFTC基準に準拠する必要があります",
+    "where": "パッケージ右下隅",
+    "reason": "画像では修飾語のない「MADE IN USA」バッジが使用されています。FTC基準によると、これは製品が「全部またはほぼ全部」米国で製造・加工され、部品も米国由来であることを要求します。完全なサプライチェーンの証明ができない場合、この絶対的な表示は虚偽広告のリスクとなります。",
+    "suggestion": "完全に準拠していない場合は、「Made in USA with global ingredients」などの限定表現に変更するか、バッジを削除してください"
+   }
+  },
+  "passes": {
+   "IN": [
+    "ビールとジェスチャーの要素は現在の規則に抵触しません",
+    "重量と星評価の表示に文化的な敏感性问题はありません",
+    "商品名と説明の一貫性を確認済みです",
+    "非ベジタリアン表示のコンプライアンスを確認済みです"
+   ],
+   "SA": [
+    "ジェスチャーは右手の親指立てであり、OKサインではありません",
+    "左手での物品受け渡しまたは食事動作は見られません",
+    "正味含量表示の規範を確認済みです",
+    "豚肉以外の肉質声明を確認済みです"
+   ],
+   "US": [
+    "正味含量表示の規範を確認済みです",
+    "輸入原産国表示を確認済みです"
+   ]
+  }
+ }
+}

@@ -1,0 +1,182 @@
+{
+ "en": {
+  "product": "Tea Set Gift Box",
+  "elements": {
+   "e1": "Number \"4\"",
+   "e2": "Set of four teacups",
+   "e3": "White chrysanthemum",
+   "e4": "Varied gesture meanings",
+   "e5": "Small text on seal"
+  },
+  "findings": {
+   "d0": {
+    "title": "Title \"LUCKY 4 SET\" contains the number 4",
+    "where": "In main title",
+    "reason": "In Japanese, \"4\" is pronounced \"shi,\" homophonous with \"death.\" Hospitals and apartments in Japan often avoid the number 4. Marketing a \"Lucky 4-piece set\" as a gift would have a strong negative effect.",
+    "suggestion": "Change to \"HARMONY 5 SET\" or remove the number, using \"Premium Tea Set\" instead; adjust the set quantity to five pieces."
+   },
+   "d1": {
+    "title": "Set of four teacups as a gift",
+    "where": "Inside the gift box",
+    "reason": "Related to point ①: Gifting items in sets of four is a common taboo in Japan. Displaying four cups directly in detail images reinforces this association.",
+    "suggestion": "Change to five cups (or two pairs), and update SKU and copy accordingly."
+   },
+   "d2": {
+    "title": "White chrysanthemums as decoration",
+    "where": "On the left",
+    "reason": "White chrysanthemums are traditionally used for funerals and grave visits in Japan. Their presence in festive gift imagery may evoke inauspicious associations.",
+    "suggestion": "Replace with pink cherry blossom branches or colorful lisianthus."
+   },
+   "d3": {
+    "title": "OK gesture can mean \"money\" in Japan",
+    "where": "High risk in Brazil",
+    "reason": "The gesture forming a circle with the thumb and index finger often signifies \"money\" in Japan, which may be misinterpreted in a gifting context.",
+    "suggestion": "Replace with an open-palm gesture holding the product."
+   },
+   "d4": {
+    "title": "Seal text too small to read",
+    "where": "Recommend adding Japanese product name",
+    "reason": "The small foreign text on the seal is illegible. Japanese retail typically requires Japanese labels.",
+    "suggestion": "Add Japanese product name and material description to detail images."
+   },
+   "d5": {
+    "title": "OK gesture considered offensive in Brazil",
+    "where": "Bottom right corner",
+    "reason": "The gesture forming a circle with the thumb and index finger is viewed as vulgar and insulting in Brazil. Its presence in main product images will directly offend consumers.",
+    "suggestion": "Replace with an open-palm gesture holding the product."
+   },
+   "d6": {
+    "title": "Recommend adding Portuguese to seal text",
+    "where": "Front of gift box",
+    "reason": "Brazil requires imported product information to be provided in Portuguese. The small text on the seal in the image cannot fulfill this requirement.",
+    "suggestion": "Add Portuguese product name and key parameters to detail images."
+   },
+   "d7": {
+    "title": "OK gesture has offensive connotations in parts of the Middle East",
+    "where": "Bottom right corner",
+    "reason": "In some Middle Eastern countries, this gesture can signify the \"evil eye\" curse or a threat, posing a risk of misinterpretation.",
+    "suggestion": "Replace with an open-palm gesture holding the product."
+   },
+   "d8": {
+    "title": "Seal lacks Arabic information",
+    "where": "Front of gift box",
+    "reason": "Saudi Arabia requires warning and safety information to be in Arabic. The image only contains illegible small foreign text.",
+    "suggestion": "Add Arabic product name and warning information."
+   },
+   "d9": {
+    "title": "Recommend adding country of origin to seal text",
+    "where": "Front of gift box",
+    "reason": "The US requires imported goods to clearly state the country of origin in English. The small text in the image is illegible.",
+    "suggestion": "Add English country of origin labeling in a prominent position on the packaging."
+   },
+   "d10": {
+    "title": "Low probability of OK gesture misinterpretation",
+    "where": "Bottom right corner",
+    "reason": "This gesture is harmless in most contexts but has been misinterpreted in rare online contexts, occasionally raising questions during European ad reviews.",
+    "suggestion": "Can be retained; if aiming for zero controversy, replace with an open-palm gesture holding the product."
+   },
+   "d11": {
+    "title": "Recommend adding importer and MRP to seal text",
+    "where": "Front of gift box",
+    "reason": "India requires pre-packaged goods to display the importer, net content, and Maximum Retail Price (MRP) including tax.",
+    "suggestion": "Add importer information and MRP label to detail images and packaging."
+   }
+  },
+  "passes": {
+   "SA": [
+    "No pork/alcohol-related elements found",
+    "No religious symbols found"
+   ]
+  }
+ },
+ "ja": {
+  "product": "茶器ギフトセット",
+  "elements": {
+   "e1": "数字「4」",
+   "e2": "湯呑み4客セット",
+   "e3": "白い菊",
+   "e4": "ジェスチャーの意味の違い",
+   "e5": "シールの細字"
+  },
+  "findings": {
+   "d0": {
+    "title": "タイトル「LUCKY 4 SET」に数字4を含む",
+    "where": "メインタイトル",
+    "reason": "日本語で「4」は「死」と同音のため、病院やマンションなどで忌避される傾向があります。「ラッキーな4点セット」というギフト訴求は、逆効果になるリスクが高いです。",
+    "suggestion": "「HARMONY 5 SET」へ変更するか、数字を削除して「Premium Tea Set」とし、セット内容を5点に変更してください。"
+   },
+   "d1": {
+    "title": "ギフトとしての湯呑み4客セット",
+    "where": "ギフトボックス内",
+    "reason": "理由①と同様、日本では4個セットのギフトは忌避されがちです。詳細画像で4客の杯を明示すると、この連想を強めてしまいます。",
+    "suggestion": "5客セット（または2客ペア）に変更し、SKUおよび文案も併せて修正してください。"
+   },
+   "d2": {
+    "title": "装飾としての白い菊",
+    "where": "左側",
+    "reason": "白菊は日本において葬儀や墓参りに用いられる花であり、慶事用のギフト画像で使用されると不吉な印象を与えます。",
+    "suggestion": "ピンクの桜の枝やカラーのトルコキキョウへ置き換えてください。"
+   },
+   "d3": {
+    "title": "日本のOKジェスチャーは「金銭」を意味する場合がある",
+    "where": "ブラジルでは高リスク",
+    "reason": "親指と人差し指で輪を作るジェスチャーは、日本では「お金」を意味することがあり、ギフトの文脈では誤解を招く可能性があります。",
+    "suggestion": "商品を支えるように掌を開いたジェスチャーへ変更してください。"
+   },
+   "d4": {
+    "title": "シールの文字が小さすぎて判読不可",
+    "where": "日本語品名の追加を推奨",
+    "reason": "シールの外国語小文字が判読できません。日本の小売現場では日本語ラベルが一般的に必要です。",
+    "suggestion": "詳細画像に日本語の品名・材質説明を追加してください。"
+   },
+   "d5": {
+    "title": "ブラジルにおいてOKジェスチャーは侮辱とみなされる",
+    "where": "右下",
+    "reason": "親指と人差し指で輪を作るジェスチャーは、ブラジルでは卑猥で侮辱的な意味を持ち、商品メイン画像での使用は消費者を直接冒犯します。",
+    "suggestion": "商品を支えるように掌を開いたジェスチャーへ変更してください。"
+   },
+   "d6": {
+    "title": "シールの細字にポルトガル語追加を推奨",
+    "where": "ギフトボックス正面",
+    "reason": "ブラジルでは輸入商品情報のポルトガル語表示が義務付けられており、画像内のシール細字ではこの要件を満たせません。",
+    "suggestion": "詳細画像にポルトガル語の品名および主要パラメータを追加してください。"
+   },
+   "d7": {
+    "title": "中東の一部地域でOKジェスチャーは侮辱的意味を含む",
+    "where": "右下",
+    "reason": "中東の一部の国では、このジェスチャーが「邪眼」の呪いや脅迫を意味することがあり、誤解されるリスクがあります。",
+    "suggestion": "商品を支えるように掌を開いたジェスチャーへ変更してください。"
+   },
+   "d8": {
+    "title": "シールにアラビア語情報が欠落",
+    "where": "ギフトボックス正面",
+    "reason": "サウジアラビアでは警告および安全情報にアラビア語の使用が義務付けられていますが、画像には判読不能な外国語小文字のみが含まれています。",
+    "suggestion": "アラビア語の品名および警告情報を追加してください。"
+   },
+   "d9": {
+    "title": "シールの細字に原産国表示追加を推奨",
+    "where": "ギフトボックス正面",
+    "reason": "米国では輸入商品の原産国を英語で目立つように表示することが義務付けられていますが、画像内の小文字では判読できません。",
+    "suggestion": "パッケージの目立つ位置に英語の原産国表示を追加してください。"
+   },
+   "d10": {
+    "title": "OKジェスチャーの低確率な誤読リスク",
+    "where": "右下",
+    "reason": "このジェスチャーはほとんどの文脈で無害ですが、極めて稀なネット文脈で曲解される可能性があり、欧州の広告審査で疑問視される場合があります。",
+    "suggestion": "現状維持可能ですが、議論を完全に避ける場合は掌を開いて商品を支えるジェスチャーへ変更してください。"
+   },
+   "d11": {
+    "title": "シールの細字に輸入者およびMRP追加を推奨",
+    "where": "ギフトボックス正面",
+    "reason": "インドでは包装済み商品に輸入者、正味量、税込最高小売価格（MRP）の表示が義務付けられています。",
+    "suggestion": "詳細画像およびパッケージに輸入者情報とMRPラベルを追加してください。"
+   }
+  },
+  "passes": {
+   "SA": [
+    "豚肉・アルコール関連要素なし",
+    "宗教的シンボルなし"
+   ]
+  }
+ }
+}

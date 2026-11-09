@@ -4,6 +4,7 @@ import { MK_SHORT, mkImg, ruleById, MARKETS } from '../lib/rules';
 import { loadSettings, hasLive } from '../lib/settings';
 import { runFix } from '../lib/pipeline';
 import type { Finding, Job, Market, Report } from '../lib/types';
+import { presetQuestions, askLive, demoAnswers, md, type Msg } from '../lib/chat';
 
 mountTopbar(3);
 let job: Job, rep: Report, demo = false;
@@ -71,7 +72,8 @@ function renderScore() {
   $('#score').innerHTML = `<div class="top"><div class="big" style="--p:${s};background:conic-gradient(${scoreColor(s)} calc(var(--p)*1%),var(--bg-2) 0)"><span><div><b class="num">${s}</b><small>/ 100</small></div></span></div>
     <div><span class="tag ${verdict[0]}">${verdict[1]}</span><h4 style="margin-top:6px">${MARKETS.find(m => m.id === cur)!.name}市场<br>${verdict[2]}</h4></div></div>
     <div class="cnt"><div style="background:var(--coral-50)"><b class="num" style="color:#E2362B">${c.high}</b><small style="color:#E2362B">高风险</small></div><div style="background:var(--amber-50)"><b class="num" style="color:#B97200">${c.mid}</b><small style="color:#B97200">中风险</small></div><div style="background:var(--mint-50)"><b class="num" style="color:#178A60">${c.low}</b><small style="color:#178A60">提示</small></div></div>
-    ${L ? `<div class="launch"><img src="${ICON('agent-decision')}" alt="">上架决策：<b>${LAUNCH_NAME[L.choice]}</b>${L.prob ? `<span class="muted">· 置信度 ${Math.round(L.prob * 100)}%</span>` : ''}</div>` : ''}`;
+    ${L ? `<div class="launch"><img src="${ICON('agent-decision')}" alt="">上架决策：<b>${LAUNCH_NAME[L.choice]}</b>${L.prob ? `<span class="muted">· 置信度 ${Math.round(L.prob * 100)}%</span>` : ''}</div>` : ''}
+    <button class="ask-btn" id="askBtn"><img src="${ICON('agent-chief')}" alt=""><span><b>追问体检团</b><small>对这份报告提问，比如“先改哪一处？”</small></span><i>→</i></button>`;
 }
 function renderSplit() {
   const a = $('#baA') as HTMLImageElement, b = $('#baB') as HTMLImageElement, split = $('#split');
@@ -127,7 +129,60 @@ $('#fixBtn').addEventListener('click', async () => {
   try {
     rep = await runFix(loadSettings(), job, rep, msg => (span.textContent = msg));
     await persist(job, rep); view = 'cmp'; renderAll();
-    toast(`修正版已生成，复检后 ${MK_SHORT[cur]} ${resOf(rep, cur)!.score} → ${rep.fixedScores?.[cur]}${rep.fixSkipped?.length ? `；另有 ${rep.fixSkipped.length} 条需线下处理（换品 / 补真实标签 / 改文案）` : ''}`, 'ok', 7000);
+    const s0 = resOf(rep, cur)!.score, s1 = rep.fixedScores?.[cur]; const off = rep.fixSkipped?.length || 0;
+    const head = s1 == null ? '修正版已生成' : s1 > s0 ? `修正版已生成，${MK_SHORT[cur]}复检 ${s0} → ${s1}` : `修正版已生成，${MK_SHORT[cur]}复检仍为 ${s1} 分`;
+    const tail = off ? `${s1 != null && s1 <= s0 ? '：剩余问题不在画面里，' : '；另有 '}${off} 条需线下处理（换品 / 补真实标签 / 改文案）` : '';
+    toast(head + tail, 'ok', 7000);
   } catch (e: any) { toast(`修图失败：${e.message}${e.hint ? '（' + e.hint + '）' : ''}`, 'err', 6000); renderSplit(); }
   finally { btn.disabled = false; }
 });
+
+// ---------- 追问体检团（对话界面） ----------
+let chat: Msg[] = []; let presetAns: string[] | null = null; let busy = false;
+function chatPanel() {
+  let d = document.getElementById('chatDrawer');
+  if (d) return d;
+  d = document.createElement('div'); d.id = 'chatDrawer'; d.className = 'chat-mask';
+  d.innerHTML = `<aside class="chat card" role="dialog" aria-label="追问体检团">
+    <header><img src="${ICON('agent-chief')}" alt=""><div><b>追问体检团</b><small id="chatSub"></small></div><button class="mx-close" id="chatClose" aria-label="关闭">✕</button></header>
+    <div class="chat-log" id="chatLog"></div>
+    <div class="chat-q" id="chatQ"></div>
+    <form class="chat-in" id="chatForm"><input id="chatInput" placeholder="输入你的问题，例如：沙特能不能直接上架？" autocomplete="off"><button class="btn btn-primary btn-sm" type="submit">发送</button></form>
+  </aside>`;
+  document.body.appendChild(d);
+  const close = () => d!.classList.remove('show');
+  d.addEventListener('mousedown', e => { if (e.target === d) close(); });
+  $('#chatClose', d).addEventListener('click', close);
+  $('#chatQ', d).addEventListener('click', e => { const b = (e.target as HTMLElement).closest<HTMLElement>('button'); if (b) send(b.textContent!, Number(b.dataset.i)); });
+  $('#chatForm', d).addEventListener('submit', e => { e.preventDefault(); const i = $<HTMLInputElement>('#chatInput', d!); const q = i.value.trim(); if (q) { i.value = ''; send(q); } });
+  return d;
+}
+function renderChat() {
+  const live = !demo && job.mode !== 'demo' && hasLive();
+  $('#chatSub').textContent = live ? `主诊医生 · ${loadSettings().reviewModel} · 基于本次报告回答` : '演示报告 · 示例回答由真实模型基于这份报告预先生成';
+  const welcome = `<div class="msg a"><img src="${ICON('agent-chief')}" alt=""><div class="bubble"><p>我是主诊医生。这份报告覆盖 <b>${job.markets.filter(m => resOf(rep, m)).map(m => MK_SHORT[m]).join('、')}</b>，你可以问我先改什么、怎么改文案、依据是什么。</p></div></div>`;
+  $('#chatLog').innerHTML = welcome + chat.map(m => m.role === 'user' ? `<div class="msg u"><div class="bubble">${esc(m.content)}</div></div>` : `<div class="msg a"><img src="${ICON('agent-chief')}" alt=""><div class="bubble">${md(m.content)}</div></div>`).join('') + (busy ? `<div class="msg a"><img src="${ICON('agent-chief')}" alt=""><div class="bubble typing"><i></i><i></i><i></i></div></div>` : '');
+  const asked = new Set(chat.filter(m => m.role === 'user').map(m => m.content));
+  $('#chatQ').innerHTML = `<small>示例提示词</small>` + presetQuestions(job, rep).map((q, i) => asked.has(q) ? '' : `<button data-i="${i}">${esc(q)}</button>`).join('');
+  const log = $('#chatLog'); log.scrollTop = log.scrollHeight;
+}
+async function send(q: string, presetIdx = -1) {
+  if (busy) return;
+  const live = !demo && job.mode !== 'demo' && hasLive();
+  chat.push({ role: 'user', content: q }); busy = true; renderChat();
+  try {
+    let a: string;
+    if (live) a = await askLive(job, rep, chat.slice(0, -1), q);
+    else {
+      presetAns ??= await demoAnswers(job.demoId || 'tea');
+      await new Promise(r => setTimeout(r, 700));
+      a = presetIdx >= 0 && presetAns[presetIdx] ? presetAns[presetIdx]
+        : '演示报告只提供示例问题的回答。配置阿里云百炼 Key 并分析你自己的商品图后，可以就报告自由追问。';
+    }
+    chat.push({ role: 'assistant', content: a });
+  } catch (e: any) {
+    chat.push({ role: 'assistant', content: `抱歉，这次没能回答：${e.message}${e.hint ? '（' + e.hint + '）' : ''}` });
+  } finally { busy = false; renderChat(); }
+}
+document.addEventListener('click', e => { if ((e.target as HTMLElement).closest('#askBtn')) { const d = chatPanel(); renderChat(); d.classList.add('show'); setTimeout(() => $<HTMLInputElement>('#chatInput').focus({ preventScroll: true }), 50); } });
+if (import.meta.env.DEV) (window as any).__ccAsk = async (i: number) => { const q = presetQuestions(job, rep)[i]; return askLive(job, rep, [], q); };

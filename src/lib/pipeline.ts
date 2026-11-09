@@ -182,6 +182,7 @@ export const OFFLINE_RULES = new Set(['in-beef', 'sa-halal-meat', 'jp-label-lang
 
 /** 修图艺术家：同规则且相邻的框合并，逐个元素串行编辑（单次 ≤2 框的接口限制下，1 框成功率最高），然后复检 */
 export async function runFix(s: Settings, job: Job, rep: Report, onProgress: (msg: string) => void): Promise<Report> {
+  if (!s.bailianKey) throw new ApiError('修图需要阿里云百炼 Key', 0, '修正版由百炼万相生成；千帆只负责视觉与复核，请在设置里补充 DashScope Key。');
   const byEl = new Map<string, Finding>(); const skipped = new Map<string, Finding>();
   for (const r of rep.results) for (const f of r.findings) {
     if (f.review) continue;

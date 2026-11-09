@@ -36,6 +36,16 @@ export async function chatJSON(s: Settings, o: { role: 'vision' | 'review'; syst
   const txt: string = data?.choices?.[0]?.message?.content ?? '';
   return { json: parseJSON(txt), model, usage: data?.usage };
 }
+/** 自由文本对话（追问体检团），不强制 JSON */
+export async function chatText(s: Settings, messages: { role: 'system' | 'user' | 'assistant'; content: string }[], temperature = 0.4): Promise<string> {
+  const qf = s.provider === 'qianfan' && !!s.qianfanKey;
+  const url = qf ? 'https://qianfan.baidubce.com/v2/chat/completions' : `${bailianBase(s)}/compatible-mode/v1/chat/completions`;
+  const model = qf ? s.qianfanTextModel : s.reviewModel;
+  const body: any = { model, messages, temperature };
+  if (!qf) body.enable_thinking = false;
+  const data = await req(url, { method: 'POST', headers: { Authorization: `Bearer ${qf ? s.qianfanKey : s.bailianKey}`, 'Content-Type': 'application/json' }, body: JSON.stringify(body) }, `${model} 对话`);
+  return String(data?.choices?.[0]?.message?.content ?? '').trim();
+}
 export function parseJSON(t: string) {
   const s = t.replace(/^```(json)?/i, '').replace(/```$/, '').trim();
   try { return JSON.parse(s); } catch { const m = s.match(/\{[\s\S]*\}/); if (m) return JSON.parse(m[0]); throw new ApiError('模型返回的不是合法 JSON'); }
