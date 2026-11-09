@@ -1,0 +1,35 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>体检结果 · 商品图文化体检</title><link rel="icon" href="assets/logo.webp"><meta name="description" content="发往海外之前，先给商品图做个文化体检：多智能体在图上圈出文化雷区，给出风险等级、来源与修正版。">
+</head>
+<body><div class="app">
+<main class="main rs-grid">
+  <section class="card img-panel">
+    <div class="img-tools">
+      <div class="seg" id="mkSeg"></div>
+      <span class="sp"></span>
+      <div class="seg" id="viewSeg"><button class="on" data-v="mark">圈注</button><button data-v="fixed">修正版</button><button data-v="cmp">对比</button></div>
+    </div>
+    <div class="img-body" id="imgBody">
+      <div class="shot" id="shot"><img id="shotImg" alt=""></div>
+      <div class="legend" id="legend"></div>
+      <div class="zoom"><button id="zin" aria-label="放大">+</button><button id="zout" aria-label="缩小">−</button></div>
+    </div>
+  </section>
+
+  <section class="card list-panel">
+    <div class="list-h"><img id="lhImg" style="width:34px;height:34px;object-fit:contain" alt=""><h3 id="lhTitle">—</h3><span style="flex:1"></span><button class="btn btn-ghost btn-sm" id="expandAll">全部展开</button></div>
+    <div class="filters" id="filters"></div>
+    <div class="rlist" id="rlist"></div>
+  </section>
+
+  <aside class="side">
+    <section class="card score" id="score"></section>
+    <section class="card ba">
+      <h4><img src="assets/agent-fix.webp" alt="">修图艺术家 · 修正版预览</h4>
+      <div class="split-wrap"><div class="split" id="split"><img id="baA" alt="原图"><img class="after" id="baB" alt="修正版"><span class="handle" id="handle"><i>⟷</i></span><span class="lbl a" id="lblA">原图</span><span class="lbl b" id="lblB">修正版</span></div></div>
+      <button class="btn btn-coral" id="fixBtn"><img src="assets/feat-wand.webp" style="width:22px;height:22px;object-fit:contain" alt=""><span>一键应用全部替换建议</span></button>
+      <a class="btn btn-ghost" href="compare.html" style="margin-top:8px;width:100%">查看多国对比报告 →</a>
+    </section>
+  </aside>
+</main>
+</div><script type="module" src="/src/pages/result.ts"></script></body></html>

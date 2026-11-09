@@ -1,0 +1,42 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>上传与选择市场 · 商品图文化体检</title><link rel="icon" href="assets/logo.webp"><meta name="description" content="发往海外之前，先给商品图做个文化体检：多智能体在图上圈出文化雷区，给出风险等级、来源与修正版。">
+</head>
+<body><div class="app">
+<main class="main up-grid">
+  <section class="card" style="display:flex;flex-direction:column;min-height:0">
+    <div class="card-h"><span class="idx">1</span><h3>上传商品图</h3><span class="sp"></span><span class="tag ai">支持主图 / 详情长图 / 包装图</span></div>
+    <div class="drop" id="drop">
+      <div class="pv"><img id="pvImg" src="assets/demo-product.webp" alt="商品图预览"><span class="ok" id="pvName">tea-gift-set.jpg · 1.2MB</span></div>
+      <div>
+        <img class="ill" src="assets/empty-upload.webp" alt="">
+        <h4>拖拽图片到这里，或点击上传</h4>
+        <p>JPG / PNG / WEBP，单张 ≤ 10MB。图片仅在你的浏览器与模型接口之间传输，不在服务器留存。</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-primary btn-sm" id="pick">重新选择</button><button class="btn btn-ghost btn-sm" id="pasteUrl">粘贴图片链接</button></div>
+        <div class="samples" style="margin-top:14px"><span class="muted" style="font-size:12px;font-weight:700;margin-right:2px">没有图？试试示例</span><img class="smp" data-s="tea" src="assets/demo-product.webp" alt="茶具礼盒示例" title="茶具礼盒"><img class="smp" data-s="jerky" src="assets/demo-product-2.webp" alt="牛肉干礼盒示例" title="牛肉干派对装"></div>
+        <input type="file" id="file" accept="image/jpeg,image/png,image/webp" hidden>
+      </div>
+    </div>
+    <div class="fields">
+      <div class="field"><label for="cat">商品类目</label><div class="input sel">🎁&nbsp;<select id="cat"><option>礼品 · 茶具套装</option><option>食品 · 肉类零食</option><option>美妆个护</option><option>服饰鞋包</option><option>家居日用</option><option>3C 数码</option><option>母婴玩具</option></select><span class="muted car">▾</span></div></div>
+      <div class="field"><label for="chan">投放渠道</label><div class="input sel"><select id="chan"><option>Amazon / Shopee 详情页</option><option>独立站商品主图</option><option>TikTok Shop 短视频封面</option><option>社媒广告素材</option><option>线下包装印刷</option></select><span class="muted car">▾</span></div></div>
+      <div class="field full"><label for="copy">标题与卖点文案（可选，一并检查）</label><textarea class="input ta" id="copy" rows="2">Lucky 4 Set – Premium porcelain tea gift box, perfect for weddings &amp; housewarming.</textarea></div>
+    </div>
+  </section>
+
+  <section class="card" style="display:flex;flex-direction:column;min-height:0">
+    <div class="card-h"><span class="idx">2</span><h3>选择目标市场</h3><span class="sp"></span><span class="muted" style="font-size:12.5px;font-weight:700" id="mkCount">已选 3 / 6</span></div>
+    <div class="mk-grid" id="mkGrid"></div>
+    <div class="sub-h">检查项目<span class="sp"></span><button style="color:var(--lav);font-weight:800;font-size:12px" id="allCat">全选</button></div>
+    <div class="rk-row" id="catRow"></div>
+    <div class="rules" id="rules"></div>
+  </section>
+
+  <div class="actbar">
+    <div class="ag-stack"><img src="assets/agent-chief.webp" alt=""><img src="assets/agent-vision.webp" alt=""><img src="assets/agent-culture.webp" alt=""><img src="assets/agent-compliance.webp" alt=""><img src="assets/agent-fix.webp" alt=""></div>
+    <div class="txt"><b>5 位 AI 专家已就位</b><small id="actHint">1 张图 × 3 个市场 × 7 类检查 · 预计 25–40 秒</small></div>
+    <span class="sp"></span>
+    <button class="mode" id="modeBtn"><span class="toggle" id="modeTg"></span><span id="modeTxt">演示模式（预置结果，无需 Key）</span></button>
+    <button class="btn btn-coral" id="start" style="height:48px;padding:0 26px">开始体检 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </div>
+</main>
+</div><script type="module" src="/src/pages/upload.ts"></script></body></html>

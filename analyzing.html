@@ -1,0 +1,36 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 会诊中 · 商品图文化体检</title><link rel="icon" href="assets/logo.webp"><meta name="description" content="发往海外之前，先给商品图做个文化体检：多智能体在图上圈出文化雷区，给出风险等级、来源与修正版。">
+</head>
+<body><div class="app">
+<main class="main an-grid">
+  <section class="card" style="display:flex;flex-direction:column;min-height:0">
+    <div class="card-h"><h3>会诊团队</h3><span class="sp"></span><span class="tag ai" id="parTag">并行 3 个市场</span></div>
+    <div class="pipe" style="margin-top:8px" id="pipe"></div>
+    <div class="brief"><img src="assets/agent-chief.webp" alt=""><div class="bubble2"><b>主诊播报</b><span id="brief">正在拆解任务…</span></div></div>
+    <div class="log" id="log"></div>
+  </section>
+
+  <section class="card scan-wrap">
+    <div class="scan-top">
+      <div><h2 class="display" id="scanTitle">正在为你的商品图做文化体检</h2><span class="muted" style="font-size:13px;font-weight:600" id="scanSub">—</span></div>
+      <div class="prog"><i id="progBar" style="width:2%"></i></div><b class="num" style="font-size:18px" id="progNum">2%</b>
+    </div>
+    <div class="scan-stage">
+      <div class="shot" id="shot"><img id="shotImg" alt=""><div class="scanveil"></div><div class="scanline"></div></div>
+      <span class="cornr tl"></span><span class="cornr tr"></span><span class="cornr bl"></span><span class="cornr br"></span>
+    </div>
+  </section>
+
+  <section class="card" style="display:flex;flex-direction:column;min-height:0">
+    <div class="card-h"><h3>实时发现</h3><span class="sp"></span><span class="tag high" id="feedTag">0 项待确认</span></div>
+    <div class="feed scroll" style="margin-top:6px;flex:1;min-height:0" id="feed"></div>
+    <div class="mprog" id="mprog"></div>
+    <div style="padding:10px 14px 14px">
+      <div style="background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:12px;display:flex;gap:12px;align-items:center">
+        <img src="assets/agents-team.webp" style="width:92px" alt="">
+        <div style="font-size:12.5px;color:var(--ink-2)"><b style="color:var(--ink);font-size:13.5px;display:block">每条结论都要过三关</b>规则库命中 + 模型复核 + 决策官仲裁，置信度低的结论会标注「建议人工确认」。</div>
+      </div>
+    </div>
+  </section>
+</main>
+</div><script type="module" src="/src/pages/analyzing.ts"></script></body></html>

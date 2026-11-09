@@ -1,0 +1,33 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>多国对比与报告 · 商品图文化体检</title><link rel="icon" href="assets/logo.webp"><meta name="description" content="发往海外之前，先给商品图做个文化体检：多智能体在图上圈出文化雷区，给出风险等级、来源与修正版。">
+</head>
+<body><div class="app">
+<main class="main cp-grid" id="cpMain">
+  <section class="mcards" id="mcards"></section>
+
+  <section class="card matrix">
+    <div class="card-h" style="padding-bottom:8px"><h3>风险对比矩阵</h3><span class="muted" style="font-size:12.5px;font-weight:600" id="mxSub">同一张图 × 6 个市场</span><span class="sp"></span>
+      <div class="seg" id="mxSeg"><button class="on" data-v="el">按元素</button><button data-v="type">按风险类型</button></div></div>
+    <div class="scroll" style="flex:1;min-height:0"><table class="mx" id="mx"></table></div>
+    <div class="after-row" id="afterRow"></div>
+  </section>
+
+  <aside class="card exp">
+    <div class="card-h"><h3>导出体检报告</h3><span class="sp"></span><img src="assets/feat-report.webp" style="width:34px;height:34px;object-fit:contain" alt=""></div>
+    <div class="prev"><img src="assets/report.webp" alt=""><div><b id="repTitle">体检报告</b><small id="repSub">含原图圈注、修正版、逐条原因与来源链接</small></div></div>
+    <div class="opt" id="opts">
+      <button class="op on" data-v="pdf"><img src="assets/feat-report.webp" alt=""><div>PDF 报告<small>适合发给运营 / 设计</small></div><span class="r"></span></button>
+      <button class="op" data-v="png"><img src="assets/feat-pinpoint.webp" alt=""><div>圈注长图 PNG<small>适合在群里直接转发</small></div><span class="r"></span></button>
+      <button class="op" data-v="json"><img src="assets/risk-text.webp" alt=""><div>Markdown / JSON<small>接入自有选品流程</small></div><span class="r"></span></button>
+    </div>
+    <div class="incl"><span>原图圈注</span><span>修正版对比</span><span>来源链接</span><span id="inclN">6 国评分</span></div>
+    <div class="sub-h" style="padding:14px 16px 6px">报告语言<span class="sp"></span></div>
+    <div style="padding:0 16px"><div class="seg" style="width:100%" id="langSeg"><button class="on" style="flex:1;justify-content:center" data-v="zh">中文</button><button style="flex:1;justify-content:center" data-v="en">English</button><button style="flex:1;justify-content:center" data-v="ja">日本語</button></div></div>
+    <div class="acts">
+      <div class="share"><img src="assets/deco-plane.webp" style="width:24px;height:24px;object-fit:contain" alt=""><code id="shareUrl">…/culture-check/compare.html?demo=tea</code><button style="color:var(--lav);font-weight:800" id="copyLink">复制</button></div>
+      <button class="btn btn-coral" style="height:48px" id="dlBtn">下载 PDF 报告</button>
+      <a class="btn btn-ghost" href="upload.html">再体检一张图</a>
+    </div>
+  </aside>
+</main>
+</div><script type="module" src="/src/pages/compare.ts"></script></body></html>
